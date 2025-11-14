@@ -6,7 +6,7 @@ const clienteSchema = new mongoose.Schema({
   nome: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   telefone: String,
-  password: { type: String, required: true }, // senha hashed
+  password: { type: String, required: true }, // senha será hashed pelo middleware
   dataCadastro: { type: Date, default: Date.now }
 });
 
