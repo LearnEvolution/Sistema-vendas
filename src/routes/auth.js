@@ -3,7 +3,8 @@ import { registrar, login } from "../controllers/authController.js";
 
 const router = express.Router();
 
-router.post("/registrar", registrar);
+// Endpoints padronizados em inglês no frontend, mas chamando funções corretas do backend
+router.post("/register", registrar); // usado no frontend
 router.post("/login", login);
 
 export default router;
