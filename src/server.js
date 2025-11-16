@@ -15,6 +15,7 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function(origin, callback){
+    console.log("Requisição CORS de:", origin); // mostra no console a origem da requisição
     if(!origin) return callback(null, true); // permitir Postman ou backend sem origem
     if(allowedOrigins.indexOf(origin) === -1){
       const msg = `Acesso negado pela política de CORS: ${origin}`;
@@ -24,6 +25,9 @@ app.use(cors({
   },
   credentials: true,
 }));
+
+// Permite requisições preflight (OPTIONS)
+app.options("*", cors());
 
 // --- Body parser ---
 app.use(express.json());
